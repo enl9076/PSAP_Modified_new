@@ -243,63 +243,75 @@ const study = lab.util.fromObject({
       "templateParameters": [
         {
           "opponent": "A",
-          "oppResp": "stole a point!",
-          "condition": "$$"
+          "oppResp": "selected \"2\" (steal)",
+          "condition": "$$",
+          "feedback": "You won!"
         },
         {
           "opponent": "B",
-          "oppResp": "stole a point!",
-          "condition": ""
+          "oppResp": "selected \"2\" (steal)",
+          "condition": "",
+          "feedback": "You lost!"
         },
         {
           "opponent": "C",
-          "oppResp": "stole a point!",
-          "condition": "$$"
+          "oppResp": "selected \"2\" (steal)",
+          "condition": "$$",
+          "feedback": "You lost!"
         },
         {
           "opponent": "D",
-          "oppResp": "stole a point!",
-          "condition": "$$"
+          "oppResp": "selected \"2\" (steal)",
+          "condition": "$$",
+          "feedback": "You won!"
         },
         {
           "opponent": "E",
-          "oppResp": "earned a point!",
-          "condition": ""
+          "oppResp": "selected \"1\" (earn)",
+          "condition": "",
+          "feedback": "You lost!"
         },
         {
           "opponent": "F",
-          "oppResp": "earned a point!",
-          "condition": "$$"
+          "oppResp": "selected \"1\" (earn)",
+          "condition": "$$",
+          "feedback": "You lost!"
         },
         {
           "opponent": "G",
-          "oppResp": "earned a point!",
-          "condition": ""
+          "oppResp": "selected \"1\" (earn)",
+          "condition": "",
+          "feedback": "You lost!"
         },
         {
           "opponent": "K",
-          "oppResp": "earned a point!",
-          "condition": "$$"
+          "oppResp": "selected \"1\" (earn)",
+          "condition": "$$",
+          "feedback": "You won!"
         },
         {
           "opponent": "L",
-          "oppResp": "protected their points",
-          "condition": "$$"
+          "oppResp": "selected \"3\" (protect)",
+          "condition": "$$",
+          "feedback": "You lost!"
         },
         {
           "opponent": "J",
-          "oppResp": "protected their points",
-          "condition": ""
+          "oppResp": "selected \"3\" (protect)",
+          "condition": "",
+          "feedback": "You lost!"
         },
         {
           "opponent": "M",
-          "oppResp": "protected their points",
-          "condition": ""
+          "oppResp": "selected \"3\" (protect)",
+          "condition": "",
+          "feedback": "You lost!"
         },
         {
           "opponent": "P",
-          "oppResp": "protected their points",
-          "condition": ""
+          "oppResp": "selected \"3\" (protect)",
+          "condition": "",
+          "feedback": "You won!"
         }
       ],
       "sample": {
@@ -314,6 +326,9 @@ const study = lab.util.fromObject({
       "shuffleGroups": [
         [
           "condition"
+        ],
+        [
+          "feedback"
         ]
       ],
       "template": {
@@ -452,24 +467,6 @@ const study = lab.util.fromObject({
               },
               {
                 "type": "i-text",
-                "left": -175,
-                "top": 225,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -489,7 +486,7 @@ const study = lab.util.fromObject({
               {
                 "type": "i-text",
                 "left": -250,
-                "top": 275,
+                "top": 225,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -511,8 +508,8 @@ const study = lab.util.fromObject({
             ],
             "files": {},
             "responses": {
-              "keypress(1)": "steal",
-              "keypress(2)": "earn",
+              "keypress(1)": "earn",
+              "keypress(2)": "steal",
               "keypress(3)": "protect"
             },
             "parameters": {},
@@ -659,24 +656,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -695,8 +674,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -866,24 +845,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -902,8 +863,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -1073,24 +1034,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -1109,8 +1052,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -1280,24 +1223,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -1316,8 +1241,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -1487,24 +1412,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -1523,8 +1430,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -1694,24 +1601,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -1730,8 +1619,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -1901,24 +1790,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -1937,8 +1808,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -2108,24 +1979,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -2144,8 +1997,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -2315,24 +2168,6 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
                 "left": 114,
                 "top": -265,
                 "angle": 0,
@@ -2351,8 +2186,8 @@ pointCounter = function(){
               },
               {
                 "type": "i-text",
-                "left": -50,
-                "top": 250,
+                "left": -14,
+                "top": 200,
                 "angle": 0,
                 "width": 257.92,
                 "height": 36.16,
@@ -2399,215 +2234,8 @@ pointCounter = function(){
             "content": [
               {
                 "type": "i-text",
-                "left": -25,
-                "top": -100,
-                "angle": 0,
-                "width": 382.44,
-                "height": 162,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#000000",
-                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "rect",
-                "left": -188.19,
-                "top": 75,
-                "angle": 0,
-                "width": 121.43,
-                "height": 50,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black"
-              },
-              {
-                "type": "i-text",
-                "left": -190,
-                "top": 75,
-                "angle": 0,
-                "width": 99.01,
-                "height": 29.38,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#ffffff",
-                "text": "1 = Earn",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "26",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "rect",
-                "left": -24.91,
-                "top": 75,
-                "angle": 0,
-                "width": 122.78,
-                "height": 50,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black"
-              },
-              {
-                "type": "rect",
-                "left": 150.67,
-                "top": 75,
-                "angle": 0,
-                "width": 149.61,
-                "height": 50,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "black"
-              },
-              {
-                "type": "i-text",
-                "left": -25,
-                "top": 75,
-                "angle": 0,
-                "width": 103.35,
-                "height": 29.38,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#ffffff",
-                "text": "2 = Steal",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "26",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": 150,
-                "top": 75,
-                "angle": 0,
-                "width": 126.46,
-                "height": 29.38,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#ffffff",
-                "text": "3 = Protect",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": "26",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -25,
-                "top": -100,
-                "angle": 0,
-                "width": 352.27,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#0070d9",
-                "text": " ${parameters.opponent}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -25,
-                "top": 200,
-                "angle": 0,
-                "width": 402.02,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Points: ${parameters.points}",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": 114,
-                "top": -265,
-                "angle": 0,
-                "width": 552.16,
-                "height": 54.24,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#12864e",
-                "text": "${parameters.condition}",
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-                "fontSize": "48",
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              },
-              {
-                "type": "i-text",
-                "left": -50,
-                "top": 250,
-                "angle": 0,
-                "width": 275.72,
-                "height": 36.16,
-                "stroke": null,
-                "strokeWidth": 1,
-                "fill": "#fcbb0a",
-                "text": "Button presses: 10 ",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "fontSize": 32,
-                "fontFamily": "sans-serif",
-                "lineHeight": 1.16,
-                "textAlign": "center"
-              }
-            ],
-            "viewport": [
-              800,
-              600
-            ],
-            "files": {},
-            "responses": {
-              "keypress(1)": "steal",
-              "keypress(2)": "earn",
-              "keypress(3)": "protect"
-            },
-            "parameters": {},
-            "messageHandlers": {
-              "before:prepare": function anonymous(
-) {
-this.options.parameters.points = 0;
-
-pointCounter = function(){
-  if (this.response_action.keypress("1")){
-    return points+1
-     }
-    else return points
-     }
-}
-            },
-            "title": "Stimulus"
-          },
-          {
-            "type": "lab.canvas.Screen",
-            "content": [
-              {
-                "type": "i-text",
                 "left": 0,
-                "top": 0,
+                "top": 50,
                 "angle": 0,
                 "width": 690.27,
                 "height": 36.16,
@@ -2633,6 +2261,24 @@ pointCounter = function(){
                 "strokeWidth": 1,
                 "fill": "rgba(0, 0, 0, 0.2)",
                 "label": ""
+              },
+              {
+                "type": "i-text",
+                "left": 0,
+                "top": -50,
+                "angle": 0,
+                "width": 339.78,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "${parameters.feedback}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
               }
             ],
             "viewport": [
@@ -2644,7 +2290,7 @@ pointCounter = function(){
             "parameters": {},
             "messageHandlers": {},
             "title": "Feedback",
-            "timeout": "2000"
+            "timeout": "2500"
           }
         ]
       }
