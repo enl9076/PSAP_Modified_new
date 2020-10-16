@@ -277,17 +277,27 @@ const study = lab.util.fromObject({
           "condition": ""
         },
         {
-          "opponent": "H",
+          "opponent": "K",
           "oppResp": "earned a point!",
           "condition": "$$"
         },
         {
-          "opponent": "I",
+          "opponent": "L",
           "oppResp": "protected their points",
           "condition": "$$"
         },
         {
           "opponent": "J",
+          "oppResp": "protected their points",
+          "condition": ""
+        },
+        {
+          "opponent": "M",
+          "oppResp": "protected their points",
+          "condition": ""
+        },
+        {
+          "opponent": "P",
           "oppResp": "protected their points",
           "condition": ""
         }
@@ -301,7 +311,11 @@ const study = lab.util.fromObject({
       "parameters": {},
       "messageHandlers": {},
       "title": "Loop",
-      "shuffleGroups": [],
+      "shuffleGroups": [
+        [
+          "condition"
+        ]
+      ],
       "template": {
         "type": "lab.flow.Sequence",
         "files": {},
@@ -333,10 +347,10 @@ const study = lab.util.fromObject({
               },
               {
                 "type": "rect",
-                "left": -185.6,
+                "left": -188.19,
                 "top": 75,
                 "angle": 0,
-                "width": 126.57,
+                "width": 121.43,
                 "height": 50,
                 "stroke": null,
                 "strokeWidth": 1,
@@ -347,12 +361,12 @@ const study = lab.util.fromObject({
                 "left": -190,
                 "top": 75,
                 "angle": 0,
-                "width": 103.35,
+                "width": 99.01,
                 "height": 29.38,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "#ffffff",
-                "text": "1 = Steal",
+                "text": "1 = Earn",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "fontSize": "26",
@@ -362,10 +376,10 @@ const study = lab.util.fromObject({
               },
               {
                 "type": "rect",
-                "left": -27.5,
+                "left": -24.91,
                 "top": 75,
                 "angle": 0,
-                "width": 117.65,
+                "width": 122.78,
                 "height": 50,
                 "stroke": null,
                 "strokeWidth": 1,
@@ -373,10 +387,10 @@ const study = lab.util.fromObject({
               },
               {
                 "type": "rect",
-                "left": 146.89,
+                "left": 150.67,
                 "top": 75,
                 "angle": 0,
-                "width": 142.11,
+                "width": 149.61,
                 "height": 50,
                 "stroke": null,
                 "strokeWidth": 1,
@@ -387,12 +401,12 @@ const study = lab.util.fromObject({
                 "left": -25,
                 "top": 75,
                 "angle": 0,
-                "width": 99.01,
+                "width": 103.35,
                 "height": 29.38,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "#ffffff",
-                "text": "2 = Earn",
+                "text": "2 = Steal",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "fontSize": "26",
@@ -438,15 +452,15 @@ const study = lab.util.fromObject({
               },
               {
                 "type": "i-text",
-                "left": -225,
-                "top": 250,
+                "left": -175,
+                "top": 225,
                 "angle": 0,
-                "width": 262.11,
+                "width": 402.02,
                 "height": 36.16,
                 "stroke": null,
                 "strokeWidth": 1,
                 "fill": "#fcbb0a",
-                "text": "Your points: points",
+                "text": "Points: ${parameters.points}",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
                 "fontSize": 32,
@@ -471,6 +485,24 @@ const study = lab.util.fromObject({
                 "fontFamily": "sans-serif",
                 "lineHeight": 1.16,
                 "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -250,
+                "top": 275,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 0 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
               }
             ],
             "viewport": [
@@ -484,7 +516,2089 @@ const study = lab.util.fromObject({
               "keypress(3)": "protect"
             },
             "parameters": {},
-            "messageHandlers": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 1 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 2 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 3 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 4 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 5 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 6 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 7 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 8 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 257.92,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 9 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
+            "title": "Stimulus"
+          },
+          {
+            "type": "lab.canvas.Screen",
+            "content": [
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 382.44,
+                "height": 162,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#000000",
+                "text": "Your opponent now is:\n\n\nWhat would you like to do?",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -188.19,
+                "top": 75,
+                "angle": 0,
+                "width": 121.43,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -190,
+                "top": 75,
+                "angle": 0,
+                "width": 99.01,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "1 = Earn",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "rect",
+                "left": -24.91,
+                "top": 75,
+                "angle": 0,
+                "width": 122.78,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "rect",
+                "left": 150.67,
+                "top": 75,
+                "angle": 0,
+                "width": 149.61,
+                "height": 50,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "black"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 75,
+                "angle": 0,
+                "width": 103.35,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "2 = Steal",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 150,
+                "top": 75,
+                "angle": 0,
+                "width": 126.46,
+                "height": 29.38,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#ffffff",
+                "text": "3 = Protect",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": "26",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": -100,
+                "angle": 0,
+                "width": 352.27,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#0070d9",
+                "text": " ${parameters.opponent}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -25,
+                "top": 200,
+                "angle": 0,
+                "width": 402.02,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Points: ${parameters.points}",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": 114,
+                "top": -265,
+                "angle": 0,
+                "width": 552.16,
+                "height": 54.24,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#12864e",
+                "text": "${parameters.condition}",
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "fontSize": "48",
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              },
+              {
+                "type": "i-text",
+                "left": -50,
+                "top": 250,
+                "angle": 0,
+                "width": 275.72,
+                "height": 36.16,
+                "stroke": null,
+                "strokeWidth": 1,
+                "fill": "#fcbb0a",
+                "text": "Button presses: 10 ",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "fontSize": 32,
+                "fontFamily": "sans-serif",
+                "lineHeight": 1.16,
+                "textAlign": "center"
+              }
+            ],
+            "viewport": [
+              800,
+              600
+            ],
+            "files": {},
+            "responses": {
+              "keypress(1)": "steal",
+              "keypress(2)": "earn",
+              "keypress(3)": "protect"
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.parameters.points = 0;
+
+pointCounter = function(){
+  if (this.response_action.keypress("1")){
+    return points+1
+     }
+    else return points
+     }
+}
+            },
             "title": "Stimulus"
           },
           {
